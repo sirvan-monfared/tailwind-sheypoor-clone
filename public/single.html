@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single</title>
+    <link rel="stylesheet" href="./css/app.css">
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body dir="rtl" class="bg-neutral-100" x-data="{ openMenu: false }">
+
+    <!-- mobile header -->
+    <header class="lg:hidden sticky top-0 bg-white shadow-sm h-16 py-2 px-3">
+        <div class="flex items-center justify-between gap-2 h-full">
+            <div class="flex iems-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                </svg>
+                <p>بازگشت</p>
+            </div>
+
+            <div class="flex iems-center justify-center gap-8">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                </svg>
+
+
+            </div>
+        </div>
+    </header>
+
+    <!-- desktop header -->
+    <header class="hidden lg:block bg-white shadow-sm">
+        <div class="bg-gray-200">
+            <div class="container px-5 lg:max-w-screen-lg mx-auto">
+                <div class="flex justify-between items-center text-sm text-neutral-500">
+                    <ul class="flex items-center gap-5">
+                        <li class="py-2"><a href="" class="hover:text-orange-500">همه آگهی ها</a></li>
+                        <li class="py-2"><a href="" class=" hover:text-orange-500">پشتیبانی</a></li>
+                    </ul>
+                    <ul class="flex items-center gap-5">
+                        <li class="py-2">
+                            <a href="#" class="flex items-center gap-2 hover:text-orange-500">
+                                <span>چت های من</span>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-6 h-6">
+                                    <path
+                                        d="M4.913 2.658c2.075-.27 4.19-.408 6.337-.408 2.147 0 4.262.139 6.337.408 1.922.25 3.291 1.861 3.405 3.727a4.403 4.403 0 00-1.032-.211 50.89 50.89 0 00-8.42 0c-2.358.196-4.04 2.19-4.04 4.434v4.286a4.47 4.47 0 002.433 3.984L7.28 21.53A.75.75 0 016 21v-4.03a48.527 48.527 0 01-1.087-.128C2.905 16.58 1.5 14.833 1.5 12.862V6.638c0-1.97 1.405-3.718 3.413-3.979z" />
+                                    <path
+                                        d="M15.75 7.5c-1.376 0-2.739.057-4.086.169C10.124 7.797 9 9.103 9 10.609v4.285c0 1.507 1.128 2.814 2.67 2.94 1.243.102 2.5.157 3.768.165l2.782 2.781a.75.75 0 001.28-.53v-2.39l.33-.026c1.542-.125 2.67-1.433 2.67-2.94v-4.286c0-1.505-1.125-2.811-2.664-2.94A49.392 49.392 0 0015.75 7.5z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="py-2 relative">
+                            <a href="#" class="flex items-center gap-2 hover:text-orange-500"
+                                @click.prevent="openMenu = ! openMenu" @click.away="openMenu = false">
+                                <span>پشتیبانی</span>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-6 h-6">
+                                    <path fill-rule="evenodd"
+                                        d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+
+                            </a>
+
+                            <ul :class="{ 'hidden': ! openMenu }"
+                                class="hidden bg-white rounded-md shadow-sm py-4 px-6 absolute w-48 left-0 top-9 border border-gray-50 text-gray-600 space-y-3 text-sm">
+                                <li><a class="hover:text-orange-500" href="./login.html">ورود | ثبت نام</a></li>
+                                <li><a class="hover:text-orange-500" href="#">پسندیده ها</a></li>
+                                <li><a class="hover:text-orange-500" href="#">آگهی های من</a></li>
+                                <li><a class="hover:text-orange-500" href="#">خریدهای من</a></li>
+                                <li><a class="hover:text-orange-500" href="#">مدیریت سفارش ها</a></li>
+                                <li><a class="hover:text-orange-500" href="#">پروفایل من</a></li>
+                                <li><a class="hover:text-orange-500" href="#">جستجوهای من</a></li>
+                                <li><a class="hover:text-orange-500" href="#">پرداخت های من</a></li>
+                                <li><a class="hover:text-orange-500" href="chat.html">چت های من</a></li>
+                                <li><a class="hover:text-orange-500" href="#">خروج</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container px-5 lg:max-w-screen-lg mx-auto">
+            <div class="flex items-center justify-between py-2">
+                <a href="./index.html">
+                    <img src="images/logo.png" alt="logo">
+                </a>
+                <a href="./submit.html"
+                    class="bg-blue-500 rounded-full px-4 py-2 text-sm text-white flex items-center hover:shadow-md cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd"
+                            d="M12 5.25a.75.75 0 01.75.75v5.25H18a.75.75 0 010 1.5h-5.25V18a.75.75 0 01-1.5 0v-5.25H6a.75.75 0 010-1.5h5.25V6a.75.75 0 01.75-.75z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span>ثبت آگهی رایگان</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- breadcrumbs -->
+    <section
+        class="container bg-white shadow-md py-5 px-4 border-t border-t-gray-100 lg:max-w-screen-lg lg:mx-auto lg:my-4 lg:py-3">
+        
+        
+        <div class="flex items-center justify-between">
+            <div class="flex item-center gap-2 text-gray-500 text-xs font-medium">
+                <span>بندر انزلی</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+                <span>املاک </span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+                <span>خرید و فروش خانه و آپارتمان </span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+                <span>دهکده ساحلی </span>
+            </div>
+
+            <div class="flex items-center justify-around gap-8 text-gray-700 text-sm">
+                <a href="#" class="flex items-center hover:text-orange-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+
+                    <span>قبلی</span>
+                </a>
+
+                <a href="#" class="border-r border-l border-gray-200 px-7">
+                    بازگشت
+                </a>
+
+                <a href="#" class="flex items-center hover:text-orange-500">
+                    <span>بعدی</span>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5 rotate-180">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <section class="container lg:max-w-screen-lg lg:mx-auto">
+        <div class="flex item-start gap-2">
+
+            <!-- right panel -->
+            <div>
+
+                <!-- slider -->
+                <section class="lg:bg-white p-2">
+                    <div class="bg-gray-100">
+                        <div class="flex items-center justify-center relative">
+                            <img class="max-h-[400px]"
+                                src="https://cdn.sheypoor.com/imgs/2023/04/22/424707327/666x500_Sw/424707327_4fe7f6c248bf76e29dc137f23c07ca99.webp"
+                                alt="image 1">
+                            <div
+                                class="bg-gray-600 rounded-full flex items-center justify-center w-8 h-8 absolute right-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </div>
+                            <div
+                                class="bg-gray-600 rounded-full flex items-center justify-center w-8 h-8 absolute left-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15.75 19.5L8.25 12l7.5-7.5" />
+                                </svg>
+                            </div>
+                            <div
+                                class="bg-gray-600 rounded-full flex items-center justify-center absolute right-5 bottom-3 py-1 px-2 text-white">
+                                9 / 1
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- description -->
+                <section class="bg-white p-4 shadow-md">
+                    <div class="flex flex-col gap-5">
+                        <div class="flex items-center lg:justify-between">
+                            <h1 class="text-xl text-black lg:font-medium"> فروش آپارتمان 101 متر در بلوار فردوس شرق
+                            </h1>
+
+                            <div class="hidden lg:flex iems-center justify-center gap-8">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                            <p class="text-xs text-gray-400 order-1 lg:order-2">
+                                <span>لحظاتی پیش، </span>
+                                <span> تهران، تهران، بلوار فردوس شرق </span>
+                            </p>
+                            <p class="order-2 lg:order-1">
+                                <strong class="font-bold text-lg text-black "> 7,900,000,000 <small>تومان</small>
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="mt-7 grid grid-cols-2 gap-4 lg:gap-y-4 lg:gap-x-6">
+                        <li class="col-span-2 lg:col-span-1 flex items-center justify-between">
+                            <div class="text-gray-400 font-medium">متراژ</div>
+                            <div class="text-black font-bold">130</div>
+                        </li>
+                        <li class="col-span-2 lg:col-span-1 flex items-center justify-between">
+                            <div class="text-gray-400 font-medium">نوع ملک</div>
+                            <div class="text-black font-bold">آپارتمان</div>
+                        </li>
+                        <li class="col-span-2 lg:col-span-1 flex items-center justify-between">
+                            <div class="text-gray-400 font-medium">تعداد اتاق</div>
+                            <div class="text-black font-bold">2</div>
+                        </li>
+                        <li class="col-span-2 lg:col-span-1 flex items-center justify-between">
+                            <div class="text-gray-400 font-medium">پارکینگ</div>
+                            <div class="text-black font-bold">دارد</div>
+                        </li>
+                        <li class="col-span-2 lg:col-span-1 flex items-center justify-between">
+                            <div class="text-gray-400 font-medium">آسانسور</div>
+                            <div class="text-black font-bold">دارد</div>
+                        </li>
+                        <li class="col-span-2 lg:col-span-1 flex items-center justify-between">
+                            <div class="text-gray-400 font-medium">سن بنا</div>
+                            <div class="text-black font-bold">یک سال</div>
+                        </li>
+                        <li class="col-span-2 lg:col-span-1 flex items-center justify-between">
+                            <div class="text-gray-400 font-medium">قیمت هر متر</div>
+                            <div class="text-black font-bold">78,218,000</div>
+                        </li>
+                    </ul>
+
+
+                    <div class="mt-8 text-gray-800" x-data="{open: false}">
+                        <p class="max-h-44 overflow-hidden" :class="{'max-h-44 overflow-hidden': ! open}"> طبقه ملک:
+                            2<br>
+                            آشپزخانه: گاز رومیزی، سینک دوقلو، هود، جزیره، هواکش، نورگیر سقفی<br>
+                            امکانات رفاهی و تفریحی: لابی، فضای سبز<br>
+                            سیستم گرمایشی و سرمایشی: پکیج، اسپلیت<br>
+                            نمای ساختمان: سنگی<br>
+                            کد فایل: 1004<br>
+                            کفپوش: پارکت<br>
+                            متراژ زمین: 700<br>
+                            وضعیت سکونت: تخلیه<br>
+                            تعداد طبقات: 8<br>
+                            مشخصه ملک: برج<br>
+                            موقعیت جغرافیایی واحد: شمالی<br>
+                            تعداد واحد در طبقه: 2<br>
+                            کابینت: MDF<br>
+                            موقعیت جغرافیایی بنا: شمالی<br>
+                            تعداد پارکینگ: ۱<br>
+                            نوع سند: شخصی<br>
+                            <br>
+                            همراهان همیشگی توجه فرمایید <br>
+                            واحد فوق<br>
+                            ویو ابدی دریا <br>
+                            و بسیار مدرن و کاملا شخصی ساز توسط بهترین سازنده محبوب شهر بندر انزلی ساخته شده است <br>
+                            <br>
+                        </p>
+
+                        <div class="flex items-center justify-center">
+                            <a href="#" class="text-orange-600 text-xs flex -items-center gap-2"
+                                @click.prevent="open = ! open">
+                                <span x-text="open ? 'نمایش کمتر' : 'نمایش بیشتر'">نمایش بیشتر</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-4 h-4"
+                                    :class="{ 'rotate-180': open}">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 flex items-center">
+                        <span class="bg-gray-200 text-gray-400 rounded-full py-1 px-2 text-xs">خرید و فروش خانه و
+                            آپارتمان در
+                            بندرانزلی</span>
+                        <span class="bg-gray-200 text-gray-400 rounded-full py-1 px-2 text-xs">خرید و فروش خانه و
+                            آپارتمان در
+                            بندرانزلی</span>
+                    </div>
+                </section>
+
+                <!-- real estate -->
+                <section class="mt-3 px-2">
+                    <div class="bg-white shadow-md rounded-md p-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-start gap-3">
+                                <img class="w-16 h-16 rounded-md"
+                                    src="https://www.sheypoor.com/img/placeholders/shop-mobile.png" alt="">
+                                <div>
+                                    <p class="text-blue-500 text-lg font-semibold">املاک رونقیان</p>
+                                    <p class="text-xs text-gray-400 mt-2">عضو شیپور از اردیبهشت 1402</p>
+                                </div>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-4 h-4">
+                                <path fill-rule="evenodd"
+                                    d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mt-3 px-2">
+                    <div class="bg-white shadow-md rounded-md p-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-start gap-3">
+                                <img class="w-12 h-12 rounded-full"
+                                    src="https://www.sheypoor.com/image/fb9370/110x110_af/users/4859/48597652_profile.jpg?1682109084"
+                                    alt="">
+                                <div>
+                                    <p class="text-blue-500 text-lg font-semibold">مشاور این آگهی <a href="#"
+                                            class="text-blue-500 font-medium hover:text-orange-500">سیروان منفرد</a></p>
+                                    <p class="text-xs text-gray-400 mt-2">عضو شیپور از اردیبهشت 1402</p>
+                                </div>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-4 h-4">
+                                <path fill-rule="evenodd"
+                                    d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                        </div>
+
+
+                        <div class="mt-10 ">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-gray-500 w-12 h-12 rounded-md flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                                    </svg>
+                                </div>
+
+                                <input type="text"
+                                    class="px-10 h-12 border border-gray-300 w-full rounded-md focus:border-blue-400 placeholder-gray-400 text-sm"
+                                    placeholder="به آگهی کننده پیام دهید ...">
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3 flex items-center">
+                            <span class="bg-gray-200 text-gray-400 rounded-full py-1 px-2 text-xs">آدرس دقیق کجاست؟
+                            </span>
+                            <span class="bg-gray-200 text-gray-400 rounded-full py-1 px-2 text-xs">امکان بازدید
+                                هست؟</span>
+                            <span class="bg-gray-200 text-gray-400 rounded-full py-1 px-2 text-xs">قیمت چنده؟</span>
+                            <span class="bg-gray-200 text-gray-400 rounded-full py-1 px-2 text-xs">تخفیف داره؟ </span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mt-5 px-3">
+
+                    <div class="grid grid-cols-3 gap-y-3 gap-x-2">
+                        <article class="bg-white shadow-sm rounded-md p-1">
+                            <a href="#" class="flex-col gap-2">
+                                <div class="relative">
+                                    <img src="https://cdn.sheypoor.com/imgs/2022/11/14/417242421/206x151_af/417242421_cea259a8ade169882db9124ef348432e.webp"
+                                        class="rounded-md" alt="">
+
+                                    <div
+                                        class="bg-gray-900 opacity-80 flex items-center absolute bottom-0 right-0 gap-2 text-white py-1 px-3 rounded-sm">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-6 h-6 fill-white">
+                                            <path d="M12 9a3.75 3.75 0 100 7.5A3.75 3.75 0 0012 9z" />
+                                            <path fill-rule="evenodd"
+                                                d="M9.344 3.071a49.52 49.52 0 015.312 0c.967.052 1.83.585 2.332 1.39l.821 1.317c.24.383.645.643 1.11.71.386.054.77.113 1.152.177 1.432.239 2.429 1.493 2.429 2.909V18a3 3 0 01-3 3h-15a3 3 0 01-3-3V9.574c0-1.416.997-2.67 2.429-2.909.382-.064.766-.123 1.151-.178a1.56 1.56 0 001.11-.71l.822-1.315a2.942 2.942 0 012.332-1.39zM6.75 12.75a5.25 5.25 0 1110.5 0 5.25 5.25 0 01-10.5 0zm12-1.5a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+
+
+                                        <span class="text-sm">5</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col justify-between w-full h-32 mt-2">
+                                    <div class="flex justify-between">
+                                        <p class="text-sm font-medium"> زمین 200 متری در دوراهی اوجی اباد </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400">قیمت توافقی</p>
+                                        <p class="text-xs text-gray-400 mt-2">مازندران، آمل، هرازپی / </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                        <article class="bg-white shadow-sm rounded-md p-1">
+                            <a href="#" class="flex-col gap-2">
+                                <div class="relative">
+                                    <img src="https://cdn.sheypoor.com/imgs/2022/11/14/417242421/206x151_af/417242421_cea259a8ade169882db9124ef348432e.webp"
+                                        class="rounded-md" alt="">
+
+                                    <div
+                                        class="bg-gray-900 opacity-80 flex items-center absolute bottom-0 right-0 gap-2 text-white py-1 px-3 rounded-sm">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-6 h-6 fill-white">
+                                            <path d="M12 9a3.75 3.75 0 100 7.5A3.75 3.75 0 0012 9z" />
+                                            <path fill-rule="evenodd"
+                                                d="M9.344 3.071a49.52 49.52 0 015.312 0c.967.052 1.83.585 2.332 1.39l.821 1.317c.24.383.645.643 1.11.71.386.054.77.113 1.152.177 1.432.239 2.429 1.493 2.429 2.909V18a3 3 0 01-3 3h-15a3 3 0 01-3-3V9.574c0-1.416.997-2.67 2.429-2.909.382-.064.766-.123 1.151-.178a1.56 1.56 0 001.11-.71l.822-1.315a2.942 2.942 0 012.332-1.39zM6.75 12.75a5.25 5.25 0 1110.5 0 5.25 5.25 0 01-10.5 0zm12-1.5a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+
+
+                                        <span class="text-sm">5</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col justify-between w-full h-32 mt-2">
+                                    <div class="flex justify-between">
+                                        <p class="text-sm font-medium"> زمین 200 متری در دوراهی اوجی اباد </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400">قیمت توافقی</p>
+                                        <p class="text-xs text-gray-400 mt-2">مازندران، آمل، هرازپی / </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                        <article class="bg-white shadow-sm rounded-md p-1">
+                            <a href="#" class="flex-col gap-2">
+                                <div class="relative">
+                                    <img src="https://cdn.sheypoor.com/imgs/2022/11/14/417242421/206x151_af/417242421_cea259a8ade169882db9124ef348432e.webp"
+                                        class="rounded-md" alt="">
+
+                                    <div
+                                        class="bg-gray-900 opacity-80 flex items-center absolute bottom-0 right-0 gap-2 text-white py-1 px-3 rounded-sm">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-6 h-6 fill-white">
+                                            <path d="M12 9a3.75 3.75 0 100 7.5A3.75 3.75 0 0012 9z" />
+                                            <path fill-rule="evenodd"
+                                                d="M9.344 3.071a49.52 49.52 0 015.312 0c.967.052 1.83.585 2.332 1.39l.821 1.317c.24.383.645.643 1.11.71.386.054.77.113 1.152.177 1.432.239 2.429 1.493 2.429 2.909V18a3 3 0 01-3 3h-15a3 3 0 01-3-3V9.574c0-1.416.997-2.67 2.429-2.909.382-.064.766-.123 1.151-.178a1.56 1.56 0 001.11-.71l.822-1.315a2.942 2.942 0 012.332-1.39zM6.75 12.75a5.25 5.25 0 1110.5 0 5.25 5.25 0 01-10.5 0zm12-1.5a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+
+
+                                        <span class="text-sm">5</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col justify-between w-full h-32 mt-2">
+                                    <div class="flex justify-between">
+                                        <p class="text-sm font-medium"> زمین 200 متری در دوراهی اوجی اباد </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400">قیمت توافقی</p>
+                                        <p class="text-xs text-gray-400 mt-2">مازندران، آمل، هرازپی / </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                    </div>
+
+
+
+                </section>
+
+
+            </div>
+
+
+            <!-- left sidebar -->
+            <div class="hidden lg:block lg:flex-1">
+                <div class="sticky top-2 bg-white shadow-md rounded-md p-5">
+                    <div class="flex flex-col items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-16 h-16 fill-gray-400">
+                            <path fill-rule="evenodd"
+                                d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                                clip-rule="evenodd" />
+                        </svg>
+
+                        <a class="text-blue-500 hover:text-orange-500 font-medium" href="#">سیروان منفرد</a>
+                        <p class="text-sm text-gray-500">عضویت از سه سال پیش </p>
+
+                        <a href="#"
+                            class="bg-blue-500 py-3 px-3 text-white font-medium w-full rounded-md text-center hover:shadow-xl hover:opacity-90">تماس
+                            با آگهی دهنده</a>
+                        <a href="#"
+                            class="border-2 border-blue-500 py-3 px-3 text-center text-blue-500 hover:border-orange-500 hover:text-orange-500 font-medium w-full rounded-md">چت
+                            با آگهی دهنده</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- footer desktop -->
+    <footer class="mt-8 hidden lg:block">
+
+        <div class="bg-gray-200">
+            <div class="container max-w-screen-lg mx-auto px-5 py-7">
+                <div class="flex items-center gap-12">
+                    <ul class="text-gray-600 text-sm flex flex-col gap-3">
+                        <li class="text-black font-medium"><strong>شیپور</strong></li>
+                        <li><a href="#" class="hover:text-black">درباره شیپور</a></li>
+                        <li><a href="#" class="hover:text-black">بلاگ</a></li>
+                        <li><a href="#" class="hover:text-black">نقشه سایت</a></li>
+                        <li><a href="#" class="hover:text-black">فرصت های شغلی</a></li>
+                    </ul>
+
+                    <ul class="text-gray-600 text-sm flex flex-col gap-3">
+                        <li class="text-black font-medium"><strong>شیپور</strong></li>
+                        <li><a href="#" class="hover:text-black">درباره شیپور</a></li>
+                        <li><a href="#" class="hover:text-black">بلاگ</a></li>
+                        <li><a href="#" class="hover:text-black">نقشه سایت</a></li>
+                        <li><a href="#" class="hover:text-black">فرصت های شغلی</a></li>
+                    </ul>
+
+                    <ul class="text-gray-600 text-sm flex flex-col gap-3">
+                        <li class="text-black font-medium"><strong>شیپور</strong></li>
+                        <li><a href="#" class="hover:text-black">درباره شیپور</a></li>
+                        <li><a href="#" class="hover:text-black">بلاگ</a></li>
+                        <li><a href="#" class="hover:text-black">نقشه سایت</a></li>
+                        <li><a href="#" class="hover:text-black">فرصت های شغلی</a></li>
+                    </ul>
+
+                    <div class="flex items-center flex-1 justify-center">
+                        <img src="images/samandehi.png" alt="samandehi">
+                        <img src="images/enamad.png" alt="enamad">
+                        <img src="images/ecunion.png" alt="ecunion">
+                    </div>
+
+                    <ul class="flex flex-col gap-1">
+                        <li class="bg-white shadow-sm rounded-md py-1 px-2">
+                            <div class="flex items-center justify-between gap-3">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-medium">اپلیکیشن اندروید</p>
+                                    <p class="text-gray-800">دانلود مستقیم</p>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-4 h-4 fill-blue-500">
+                                    <path fill-rule="evenodd"
+                                        d="M12 2.25a.75.75 0 01.75.75v11.69l3.22-3.22a.75.75 0 111.06 1.06l-4.5 4.5a.75.75 0 01-1.06 0l-4.5-4.5a.75.75 0 111.06-1.06l3.22 3.22V3a.75.75 0 01.75-.75zm-9 13.5a.75.75 0 01.75.75v2.25a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5V16.5a.75.75 0 011.5 0v2.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V16.5a.75.75 0 01.75-.75z"
+                                        clip-rule="evenodd" />
+                                </svg>
+
+                            </div>
+
+                        </li>
+                        <li class="bg-white shadow-sm rounded-md py-1 px-2">
+                            <div class="flex items-center justify-between gap-3">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-medium">اپلیکیشن ios</p>
+                                    <p class="text-gray-800">دانلود مستقیم</p>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-4 h-4 fill-blue-500">
+                                    <path fill-rule="evenodd"
+                                        d="M12 2.25a.75.75 0 01.75.75v11.69l3.22-3.22a.75.75 0 111.06 1.06l-4.5 4.5a.75.75 0 01-1.06 0l-4.5-4.5a.75.75 0 111.06-1.06l3.22 3.22V3a.75.75 0 01.75-.75zm-9 13.5a.75.75 0 01.75.75v2.25a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5V16.5a.75.75 0 011.5 0v2.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V16.5a.75.75 0 01.75-.75z"
+                                        clip-rule="evenodd" />
+                                </svg>
+
+                            </div>
+
+                        </li>
+                        <li class="bg-white shadow-sm rounded-md py-1 px-2">
+                            <div class="flex items-center justify-between gap-3">
+                                <div>
+                                    <p class="text-gray-800"> همه مارکت ها</p>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-4 h-4 fill-blue-500">
+                                    <path fill-rule="evenodd"
+                                        d="M4.5 12a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm6 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+
+
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-300">
+            <div class="container max-w-screen-lg mx-auto px-5 py-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-between">
+                        <p>کليه حقوق اين سایت متعلق به شرکت نت تجارت اهورا (شیپور) است.</p>
+                        <div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+    </footer>
+
+    <!-- footer mobile -->
+    <footer class="lg:hidden mt-5 sticky bottom-0 bg-white p-2">
+
+        <div class="bg-blue-500 text-white shadow-sm px-5 py-2 rounded-md">
+            <div class="flex items-center">
+                <div class="flex flex-col flex-1 gap-1 items-center border-l border-gray-100 border-dashed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="w-6 h-6 fill-white">
+                        <path
+                            d="M4.913 2.658c2.075-.27 4.19-.408 6.337-.408 2.147 0 4.262.139 6.337.408 1.922.25 3.291 1.861 3.405 3.727a4.403 4.403 0 00-1.032-.211 50.89 50.89 0 00-8.42 0c-2.358.196-4.04 2.19-4.04 4.434v4.286a4.47 4.47 0 002.433 3.984L7.28 21.53A.75.75 0 016 21v-4.03a48.527 48.527 0 01-1.087-.128C2.905 16.58 1.5 14.833 1.5 12.862V6.638c0-1.97 1.405-3.718 3.413-3.979z" />
+                        <path
+                            d="M15.75 7.5c-1.376 0-2.739.057-4.086.169C10.124 7.797 9 9.103 9 10.609v4.285c0 1.507 1.128 2.814 2.67 2.94 1.243.102 2.5.157 3.768.165l2.782 2.781a.75.75 0 001.28-.53v-2.39l.33-.026c1.542-.125 2.67-1.433 2.67-2.94v-4.286c0-1.505-1.125-2.811-2.664-2.94A49.392 49.392 0 0015.75 7.5z" />
+                    </svg>
+                    <span>چت</span>
+                </div>
+
+                <div class="flex flex-col flex-1 gap-1 items-center  border-l border-gray-100 border-dashed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd"
+                            d="M12 2.25c-2.429 0-4.817.178-7.152.521C2.87 3.061 1.5 4.795 1.5 6.741v6.018c0 1.946 1.37 3.68 3.348 3.97.877.129 1.761.234 2.652.316V21a.75.75 0 001.28.53l4.184-4.183a.39.39 0 01.266-.112c2.006-.05 3.982-.22 5.922-.506 1.978-.29 3.348-2.023 3.348-3.97V6.741c0-1.947-1.37-3.68-3.348-3.97A49.145 49.145 0 0012 2.25zM8.25 8.625a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zm2.625 1.125a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
+                            clip-rule="evenodd" />
+                    </svg>
+
+                    <span>پیامک</span>
+                </div>
+
+                <div class="flex flex-col flex-1 gap-1 items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="w-6 h-6 fill-white">
+                        <path fill-rule="evenodd"
+                            d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
+                            clip-rule="evenodd" />
+                    </svg>
+
+                    <span>تماس</span>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
