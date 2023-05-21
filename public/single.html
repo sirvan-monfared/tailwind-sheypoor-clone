@@ -8,13 +8,13 @@
     <title>Single</title>
     <link rel="stylesheet" href="./css/app.css">
 
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="js/alpine.js" defer></script>
 </head>
 
 <body dir="rtl" class="bg-neutral-100" x-data="{ openMenu: false }">
 
     <!-- mobile header -->
-    <header class="lg:hidden sticky top-0 bg-white shadow-sm h-16 py-2 px-3">
+    <header class="lg:hidden bg-white shadow-sm h-16 py-2 px-3 z-10">
         <div class="flex items-center justify-between gap-2 h-full">
             <div class="flex iems-center justify-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -118,7 +118,7 @@
 
     <!-- breadcrumbs -->
     <section
-        class="container bg-white shadow-md py-5 px-4 border-t border-t-gray-100 lg:max-w-screen-lg lg:mx-auto lg:my-4 lg:py-3">
+        class="container bg-white shadow-md py-5 px-4 border-t border-t-gray-100 lg:max-w-screen-lg mx-auto lg:my-4 lg:py-3">
         
         
         <div class="flex items-center justify-between">
@@ -133,7 +133,7 @@
                     stroke="currentColor" class="w-4 h-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                 </svg>
-                <span>خرید و فروش خانه و آپارتمان </span>
+                <span>خرید و فروش ویلا </span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-4 h-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -141,7 +141,7 @@
                 <span>دهکده ساحلی </span>
             </div>
 
-            <div class="flex items-center justify-around gap-8 text-gray-700 text-sm">
+            <div class="hidden lg:flex items-center justify-around gap-8 text-gray-700 text-sm">
                 <a href="#" class="flex items-center hover:text-orange-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
@@ -169,7 +169,7 @@
         
     </section>
 
-    <section class="container lg:max-w-screen-lg lg:mx-auto">
+    <section class="container lg:max-w-screen-lg mx-auto">
         <div class="flex item-start gap-2">
 
             <!-- right panel -->
@@ -179,11 +179,11 @@
                 <section class="lg:bg-white p-2">
                     <div class="bg-gray-100">
                         <div class="flex items-center justify-center relative">
-                            <img class="max-h-[400px]"
-                                src="https://cdn.sheypoor.com/imgs/2023/04/22/424707327/666x500_Sw/424707327_4fe7f6c248bf76e29dc137f23c07ca99.webp"
+                            <img class="max-h-[17rem] lg:max-h-[25rem]"
+                                src="images/items/detail.jpg"
                                 alt="image 1">
                             <div
-                                class="bg-gray-600 rounded-full flex items-center justify-center w-8 h-8 absolute right-5">
+                                class="bg-gray-600 rounded-full flex items-center justify-center w-8 h-8 absolute right-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -191,7 +191,7 @@
                                 </svg>
                             </div>
                             <div
-                                class="bg-gray-600 rounded-full flex items-center justify-center w-8 h-8 absolute left-5">
+                                class="bg-gray-600 rounded-full flex items-center justify-center w-8 h-8 absolute left-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -199,7 +199,7 @@
                                 </svg>
                             </div>
                             <div
-                                class="bg-gray-600 rounded-full flex items-center justify-center absolute right-5 bottom-3 py-1 px-2 text-white">
+                                class="bg-gray-600 rounded-full flex items-center justify-center absolute right-3 bottom-3 py-1 px-2 text-white">
                                 9 / 1
                             </div>
                         </div>
@@ -399,11 +399,11 @@
                 <section class="mt-5 px-3">
 
                     <div class="grid grid-cols-3 gap-y-3 gap-x-2">
-                        <article class="bg-white shadow-sm rounded-md p-1">
+                        <article class="bg-white shadow-sm rounded-md p-1 lg:p-2">
                             <a href="#" class="flex-col gap-2">
                                 <div class="relative">
-                                    <img src="https://cdn.sheypoor.com/imgs/2022/11/14/417242421/206x151_af/417242421_cea259a8ade169882db9124ef348432e.webp"
-                                        class="rounded-md" alt="">
+                                    <img src="images/items/1.jpg"
+                                        class="rounded-md h-32 md:h-40 lg:h-48 aspect-video" alt="">
 
                                     <div
                                         class="bg-gray-900 opacity-80 flex items-center absolute bottom-0 right-0 gap-2 text-white py-1 px-3 rounded-sm">
@@ -421,21 +421,21 @@
                                 </div>
                                 <div class="flex flex-col justify-between w-full h-32 mt-2">
                                     <div class="flex justify-between">
-                                        <p class="text-sm font-medium"> زمین 200 متری در دوراهی اوجی اباد </p>
+                                        <p class="text-sm font-medium lg:text-base"> زمین 200 متری در دوراهی اوجی اباد </p>
                                     </div>
                                     <div>
-                                        <p class="text-xs text-gray-400">قیمت توافقی</p>
-                                        <p class="text-xs text-gray-400 mt-2">مازندران، آمل، هرازپی / </p>
+                                        <p class="text-xs lg:text-sm text-gray-400">قیمت توافقی</p>
+                                        <p class="text-xs lg:text-sm text-gray-400 mt-2">مازندران، آمل، هرازپی </p>
                                     </div>
                                 </div>
                             </a>
                         </article>
 
-                        <article class="bg-white shadow-sm rounded-md p-1">
+                        <article class="bg-white shadow-sm rounded-md p-1 lg:p-2">
                             <a href="#" class="flex-col gap-2">
                                 <div class="relative">
-                                    <img src="https://cdn.sheypoor.com/imgs/2022/11/14/417242421/206x151_af/417242421_cea259a8ade169882db9124ef348432e.webp"
-                                        class="rounded-md" alt="">
+                                    <img src="images/items/2.jpg"
+                                        class="rounded-md h-32 md:h-40 lg:h-48 aspect-video" alt="">
 
                                     <div
                                         class="bg-gray-900 opacity-80 flex items-center absolute bottom-0 right-0 gap-2 text-white py-1 px-3 rounded-sm">
@@ -453,21 +453,21 @@
                                 </div>
                                 <div class="flex flex-col justify-between w-full h-32 mt-2">
                                     <div class="flex justify-between">
-                                        <p class="text-sm font-medium"> زمین 200 متری در دوراهی اوجی اباد </p>
+                                        <p class="text-sm font-medium lg:text-base"> زمین 200 متری در دوراهی اوجی اباد </p>
                                     </div>
                                     <div>
-                                        <p class="text-xs text-gray-400">قیمت توافقی</p>
-                                        <p class="text-xs text-gray-400 mt-2">مازندران، آمل، هرازپی / </p>
+                                        <p class="text-xs lg:text-sm text-gray-400">قیمت توافقی</p>
+                                        <p class="text-xs lg:text-sm text-gray-400 mt-2">مازندران، آمل، هرازپی </p>
                                     </div>
                                 </div>
                             </a>
                         </article>
 
-                        <article class="bg-white shadow-sm rounded-md p-1">
+                        <article class="bg-white shadow-sm rounded-md p-1 lg:p-2">
                             <a href="#" class="flex-col gap-2">
                                 <div class="relative">
-                                    <img src="https://cdn.sheypoor.com/imgs/2022/11/14/417242421/206x151_af/417242421_cea259a8ade169882db9124ef348432e.webp"
-                                        class="rounded-md" alt="">
+                                    <img src="images/items/6.jpg"
+                                        class="rounded-md h-32 md:h-40 lg:h-48 aspect-video" alt="">
 
                                     <div
                                         class="bg-gray-900 opacity-80 flex items-center absolute bottom-0 right-0 gap-2 text-white py-1 px-3 rounded-sm">
@@ -485,11 +485,11 @@
                                 </div>
                                 <div class="flex flex-col justify-between w-full h-32 mt-2">
                                     <div class="flex justify-between">
-                                        <p class="text-sm font-medium"> زمین 200 متری در دوراهی اوجی اباد </p>
+                                        <p class="text-sm font-medium lg:text-base"> زمین 200 متری در دوراهی اوجی اباد </p>
                                     </div>
                                     <div>
-                                        <p class="text-xs text-gray-400">قیمت توافقی</p>
-                                        <p class="text-xs text-gray-400 mt-2">مازندران، آمل، هرازپی / </p>
+                                        <p class="text-xs lg:text-sm text-gray-400">قیمت توافقی</p>
+                                        <p class="text-xs lg:text-sm text-gray-400 mt-2">مازندران، آمل، هرازپی </p>
                                     </div>
                                 </div>
                             </a>
@@ -506,7 +506,7 @@
 
 
             <!-- left sidebar -->
-            <div class="hidden lg:block lg:flex-1">
+            <div class="hidden lg:block lg:flex-1 lg:min-w-[20rem]">
                 <div class="sticky top-2 bg-white shadow-md rounded-md p-5">
                     <div class="flex flex-col items-center gap-3">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"

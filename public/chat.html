@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/app.css">
 
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="js/alpine.js" defer></script>
 </head>
 
 <body dir="rtl" class="bg-neutral-100" x-data="{ open: false, openMenu: false }">
@@ -230,7 +230,7 @@
 
                                 <li class="flex items-center justify-center">
                                     <span class="bg-gray-200 text-gray-500  text-xs py-1 px-2 rounded-full">جمعه 12
-                                        اسنفد</span>
+                                        اسفند</span>
                                 </li>
 
                                 <li
@@ -391,19 +391,15 @@
                             <ul class="flex items-center gap-2">
                                 <li>
                                     <span class="bg-gray-200 text-gray-500  text-xs py-1 px-2 rounded-full">جمعه 12
-                                        اسنفد</span>
+                                        اسفند</span>
                                 </li>
                                 <li>
                                     <span class="bg-gray-200 text-gray-500  text-xs py-1 px-2 rounded-full">جمعه 12
-                                        اسنفد</span>
+                                        اسفند</span>
                                 </li>
                                 <li>
                                     <span class="bg-gray-200 text-gray-500  text-xs py-1 px-2 rounded-full">جمعه 12
-                                        اسنفد</span>
-                                </li>
-                                <li>
-                                    <span class="bg-gray-200 text-gray-500  text-xs py-1 px-2 rounded-full">جمعه 12
-                                        اسنفد</span>
+                                        اسفند</span>
                                 </li>
 
                             </ul>
@@ -553,8 +549,8 @@
 
         <div class="bg-white shadow-sm pt-2 px-5">
             <div class="container max-w-screen-md mx-auto">
-                <nav class="flex items-center justify-between text-gray-500">
-                    <div class="flex flex-col items-center gap-2">
+                <nav class="flex items-center justify-between text-gray-500 text-sm md:text-base">
+                    <a href="./index.html" class="flex flex-col items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
                             <path fill-rule="evenodd"
                                 d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 01.75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 019.75 22.5a.75.75 0 01-.75-.75v-4.131A15.838 15.838 0 016.382 15H2.25a.75.75 0 01-.75-.75 6.75 6.75 0 017.815-6.666zM15 6.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"
@@ -565,9 +561,9 @@
 
                         <p>آگهی ها</p>
 
-                    </div>
+                    </a>
 
-                    <div class="flex flex-col items-center gap-2">
+                    <a href="#" class="flex flex-col items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
                             <path fill-rule="evenodd"
                                 d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
@@ -577,9 +573,9 @@
 
                         <p>پسندیده ها</p>
 
-                    </div>
+                    </a>
 
-                    <div class="flex flex-col items-center gap-2">
+                    <a href="submit.html" class="flex flex-col items-center gap-2">
                         <div class="bg-blue-500 rounded-full w-7 h-7 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="w-5 h-5 fill-white">
@@ -593,31 +589,32 @@
 
                         <p>ثبت آگهی</p>
 
-                    </div>
+                    </a>
 
-                    <div class="flex flex-col items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                            <path fill-rule="evenodd"
-                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                                clip-rule="evenodd" />
+                    <a href="./chat.html" class="flex flex-col items-center gap-2">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path
+                                d="M4.913 2.658c2.075-.27 4.19-.408 6.337-.408 2.147 0 4.262.139 6.337.408 1.922.25 3.291 1.861 3.405 3.727a4.403 4.403 0 00-1.032-.211 50.89 50.89 0 00-8.42 0c-2.358.196-4.04 2.19-4.04 4.434v4.286a4.47 4.47 0 002.433 3.984L7.28 21.53A.75.75 0 016 21v-4.03a48.527 48.527 0 01-1.087-.128C2.905 16.58 1.5 14.833 1.5 12.862V6.638c0-1.97 1.405-3.718 3.413-3.979z" />
+                            <path
+                                d="M15.75 7.5c-1.376 0-2.739.057-4.086.169C10.124 7.797 9 9.103 9 10.609v4.285c0 1.507 1.128 2.814 2.67 2.94 1.243.102 2.5.157 3.768.165l2.782 2.781a.75.75 0 001.28-.53v-2.39l.33-.026c1.542-.125 2.67-1.433 2.67-2.94v-4.286c0-1.505-1.125-2.811-2.664-2.94A49.392 49.392 0 0015.75 7.5z" />
                         </svg>
 
 
-                        <p>پسندیده ها</p>
+                        <p> پیام ها</p>
 
-                    </div>
+                    </a>
 
-                    <div class="flex flex-col items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                    <a href="#" class="flex flex-col items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                             <path fill-rule="evenodd"
-                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
                                 clip-rule="evenodd" />
                         </svg>
 
+                        <p> حساب من</p>
 
-                        <p>پسندیده ها</p>
-
-                    </div>
+                    </a>
                 </nav>
             </div>
         </div>

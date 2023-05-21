@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/app.css">
 
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="js/alpine.js" defer></script>
 </head>
 
 <body dir="rtl" class="bg-neutral-100" x-data="{ openModal: false, openMenu: false }">
@@ -23,8 +23,8 @@
 
         <div
             class="fixed w-screen h-screen lg:w-[420px] lg:h-auto lg:top-1/2 lg:-translate-y-1/2 lg:mx-auto inset-0 bg-neutral-100 lg:bg-white z-30">
-            
-            <div class="lg:hidden sticky top-0 bg-white shadow-sm h-16 p-2"  @click="openModal = false">
+
+            <div class="lg:hidden sticky top-0 bg-white shadow-sm h-16 p-2" @click="openModal = false">
                 <div class="flex items-center justify-start gap-2 h-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
@@ -198,15 +198,16 @@
     </div>
 
     <!-- mobile header -->
-    <header class="lg:hidden sticky top-0 bg-white shadow-sm h-16 p-2">
-        <div class="flex items-center justify-start gap-2 h-full">
+    <header class="lg:hidden sticky top-0 bg-white shadow-sm h-16 p-2 z-10">
+        <a class="flex items-center justify-start gap-2 h-full cursor-pointer" href="index.html">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
             </svg>
 
             <p>بازگشت</p>
-        </div>
+        </a>
     </header>
 
     <!-- desktop header -->
@@ -294,7 +295,7 @@
             <section class="order-2 lg:order-1 flex-1">
                 <div class="bg-white shadow-md rounded-md p-3 mt-3 space-y-6">
 
-                    <div @click="openModal = true" >
+                    <div @click="openModal = true">
                         <label for="" class="block text-sm mb-2">انتخاب گروه</label>
                         <div class="relative flex items-center">
                             <input type="text"
@@ -330,7 +331,7 @@
                             placeholder="توضیحات مناسبی برای آگهی تان وارد کنید"></textarea>
                     </div>
 
-                    <div  @click="openModal = true">
+                    <div @click="openModal = true">
                         <label for="" class="block text-sm mb-2">مکان </label>
                         <div class="relative flex items-center">
                             <input type="text"
@@ -361,7 +362,7 @@
                             <a href="#" class="text-blue-500">قوانین و شرایط استفاده</a>
                             لاراپلاس اعلام می کنید.
                         </p>
-                        <button class="bg-blue-500 text-white py-2 px-4 rounded-md w-full">ثبت آگهی</button>
+                        <button class="bg-blue-500 text-white py-2 px-4 mt-3 rounded-md w-full">ثبت آگهی</button>
                     </div>
 
                 </div>
